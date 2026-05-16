@@ -1,26 +1,21 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { AutoreService } from '../../services/autore/autore.service';
+import { Observable, catchError, of, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   standalone: false,
   templateUrl: './home.html',
-  styleUrls: ['./home.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./home.scss']
 })
 export class Home {
-  listaAutori?: Autore[];
   displayedColumns: string[] = ['nome', 'cognome', 'website'];
+  readonly listAutori$: Observable<Autore[]>;
 
   constructor(
     private autoreService: AutoreService,
-    private cdr: ChangeDetectorRef
+    // private cdr: ChangeDetectorRef
   ){
-    autoreService.getListAutori().subscribe({
-      next: res => {
-        this.listaAutori = res;
-      },
-      complete: () => this.cdr.markForCheck()
-    })
+    this.listAutori$ = this.autoreService.getListAutori();
   }
 }
