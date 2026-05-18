@@ -3,4 +3,5 @@ interface Autore {
     cognome: string;
     website: string;
     imgUrl: string;
+    idPersona: number;
 }
