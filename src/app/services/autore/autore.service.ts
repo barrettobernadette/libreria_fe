@@ -17,9 +17,9 @@ export class AutoreService {
   }
 
   getListAutori(): Observable<Autore[]> {
-    const authorization: HttpHeaders = new HttpHeaders({
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiJ9.aaBixrih2tvverkewr5Ky6Y2wDW8Gk8K9ATCPtnbNig"
-    })
-    return this.httpClient.get<Autore[]>(this.basepath + this.path + "all", {headers: authorization})
+    // const authorization: HttpHeaders = new HttpHeaders({
+    //   "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiJ9.aaBixrih2tvverkewr5Ky6Y2wDW8Gk8K9ATCPtnbNig"
+    // })
+    return this.httpClient.get<Autore[]>(this.basepath + this.path + "all", {withCredentials:true})
   }
 }

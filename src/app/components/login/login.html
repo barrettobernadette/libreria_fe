@@ -1,1 +1,23 @@
-<p>login works!</p>
+
+<div class="d-flex flex-column full-height">
+    <div class="header d-flex justify-content-center ">
+        <h2>HEADER</h2>
+    </div>
+    <div class="body d-flex justify-content-center flex-grow-1 "> 
+            <form [formGroup]="form" (ngSubmit)="login()" class="flex-column w-100" style="max-width: 300px;">
+                <label>USERNAME</label>
+                <input type="text" formControlName="username" >
+                <label>PASSWORD</label>
+                <input type="text" formControlName="password">
+                <button type="submit" class="btn btn-primary w-100 mt-2"> Login </button>
+            
+                <div *ngIf="successMessage" class="alert alert-success text-center">
+                    {{ successMessage }}
+                </div>
+                <a class="btn btn-dark w-100 mt-2" [routerLink]="['/signup']">Sign Up</a>
+            </form>
+            
+        
+    </div>
+    <div class="footer d-flex justify-content-center ">FOORTER</div>
+</div>
