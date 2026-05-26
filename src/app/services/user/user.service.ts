@@ -19,4 +19,8 @@ export class UserService {
     return this.httpClient.post(this.basepath + this.path + "login", credentials, {withCredentials: true })
   }
 
+  signup(payload: any): Observable<any> {
+    return this.httpClient.post(this.basepath + this.path + "signup", payload, {withCredentials: true})
+  }
+
 }
